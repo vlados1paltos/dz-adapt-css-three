@@ -1,0 +1,221 @@
+* {
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    line-height: 1.5;
+
+    color: #121111;
+    background-color: #fcf5f5;
+}
+
+.page {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.grid {
+    margin-bottom: 60px;
+}
+
+.grid__title {
+    margin-bottom: 24px;
+
+    font-size: 32px;
+}
+
+/*
+(Основное задание 2)
+Применил к контейнеру display: grid и задал сетку
+с помощью grid-template-columns и grid-template-rows.
+*/
+
+/*
+(Основное задание 3)
+Использовал gap для задания расстояния между строками и колонками.
+*/
+.grid__container {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 140px);
+
+    gap: 20px;
+}
+
+.grid__item {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 24px;
+    font-weight: 700;
+
+    color: #fbf6f6;
+    background-color: #346401;
+
+    border-radius: 16px;
+
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease;
+}
+
+/*
+(Основное задание 4)
+Настроил размещение отдельных элементов внутри сетки
+с помощью grid-column и grid-row.
+*/
+.grid__item--large {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+}
+
+.grid__item--wide {
+    grid-column: 3 / 5;
+}
+
+/*
+(Дополнительное задание 1)
+Добавил анимацию при наведении на элементы внутри Grid-контейнера.
+*/
+.grid__item:hover {
+    transform: scale(1.05);
+
+    background-color: #4f8f0a;
+}
+
+.layout {
+    margin-bottom: 60px;
+}
+
+/*
+(Задание на эксперименты 1)
+Создал сложную сетку с помощью grid-template-areas.
+*/
+.layout__container {
+    display: grid;
+
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 80px 300px 80px;
+
+    grid-template-areas:
+        "header header"
+        "sidebar content"
+        "footer footer";
+
+    gap: 20px;
+}
+
+.layout__header,
+.layout__sidebar,
+.layout__content,
+.layout__footer {
+    padding: 24px;
+
+    color: #fbf6f6;
+    background-color: #2b5300;
+
+    border-radius: 16px;
+}
+
+.layout__header {
+    grid-area: header;
+}
+
+.layout__sidebar {
+    grid-area: sidebar;
+}
+
+.layout__content {
+    grid-area: content;
+}
+
+.layout__footer {
+    grid-area: footer;
+}
+
+/*
+(Дополнительное задание 2)
+Создал область для анимации.
+*/
+.animation {
+    position: relative;
+
+    min-height: 180px;
+
+    background-color: #e0e0e0;
+
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.animation__box {
+    position: absolute;
+
+    top: 50px;
+    left: 20px;
+
+    width: 60px;
+    height: 60px;
+
+    background-color: #933333;
+
+    border-radius: 12px;
+
+    animation: move-box 3s infinite alternate ease-in-out;
+}
+
+/*
+(Дополнительное задание 2)
+Применил @keyframes и position для создания
+простого анимационного эффекта.
+*/
+@keyframes move-box {
+    from {
+        left: 20px;
+    }
+
+    to {
+        left: calc(100% - 80px);
+    }
+}
+
+/*
+(Задание на эксперименты 2)
+При ширине экрана менее 600px
+сетка перестраивается в одну колонку.
+*/
+@media (max-width: 600px) {
+
+    .grid__container {
+        grid-template-columns: 1fr;
+
+        grid-template-rows: auto;
+    }
+
+    .grid__item--large,
+    .grid__item--wide {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .layout__container {
+        grid-template-columns: 1fr;
+
+        grid-template-areas:
+            "header"
+            "sidebar"
+            "content"
+            "footer";
+    }
+}

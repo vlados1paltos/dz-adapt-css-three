@@ -1,0 +1,103 @@
+<!--
+(Основное задание 1)
+Создал html-документ с контейнером div и несколькими дочерними элементами.
+-->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <main class="page">
+
+        <section class="grid">
+
+            <h1 class="grid__title">
+                CSS Grid
+            </h1>
+
+            <div class="grid__container">
+
+                <div class="grid__item grid__item--large">
+                    Первый
+                </div>
+
+                <div class="grid__item">
+                    Второй
+                </div>
+
+                <div class="grid__item">
+                    Третий
+                </div>
+
+                <div class="grid__item grid__item--wide">
+                    Четвёртый
+                </div>
+
+                <div class="grid__item">
+                    Пятый
+                </div>
+
+                <div class="grid__item">
+                    Шестой
+                </div>
+
+                <div class="grid__item">
+                    Седьмой
+                </div>
+
+                <div class="grid__item">
+                    Восьмой
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="layout">
+
+            <!--
+            (Задание на эксперименты 1)
+            Создал сложную сетку с помощью grid-template-areas.
+            -->
+            <div class="layout__container">
+
+                <header class="layout__header">
+                    Header
+                </header>
+
+                <aside class="layout__sidebar">
+                    Sidebar
+                </aside>
+
+                <section class="layout__content">
+                    Main content
+                </section>
+
+                <footer class="layout__footer">
+                    Footer
+                </footer>
+
+            </div>
+
+        </section>
+
+        <section class="animation">
+
+            <!--
+            (Дополнительное задание 2)
+            Создал элемент для анимации с помощью @keyframes и position.
+            -->
+            <div class="animation__box"></div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
